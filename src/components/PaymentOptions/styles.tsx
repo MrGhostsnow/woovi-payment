@@ -102,7 +102,7 @@ export const Total = styled.div`
 export const CashbackAmount = styled.div`
   font-size: 0.8rem;
   color: #fff;
-  margin-top: 4px;
+  margin-left: 8px;
 `;
 
 export const BestOption = styled.div`
@@ -128,7 +128,8 @@ export const BlueRibbon = styled.div`
   height: 33px;
   color: #fff;
   display: flex;
-  justify-content: center;
+  justify-content: start;
+  border-radius: 6px;
   align-items: center;
   font-family: "Nunito", Arial, sans-serif;
 `;
