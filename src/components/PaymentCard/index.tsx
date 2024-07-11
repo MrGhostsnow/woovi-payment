@@ -1,21 +1,5 @@
 import React, { useState } from "react";
-import {
-  Container,
-  Header,
-  QrCode,
-  SecurePayment,
-  Checkbox,
-  Quotas,
-  Quota,
-  FirstQuota,
-  SecondQuota,
-  ButtonCopyQrcode,
-  PaymentTerm,
-  Tax,
-  Tutorial,
-  Identifier,
-  Line,
-} from "./styles";
+import { Container, Header, Checkbox } from "./styles";
 
 import img from "../../assets/logo.png";
 import footerLogo from "../../assets/footerLogo.png";
@@ -25,8 +9,9 @@ import paperIcon from "../../assets/paper.png";
 import arrow from "../../assets/arrow.png";
 import line from "../../assets/line.png";
 import PaymentQuota from "../PaymentQuota";
+import Form from "../Form";
 
-const PaymentPix: React.FC = () => {
+const PaymentCard: React.FC = () => {
   const CustomCheckbox: React.FC<{ checked: boolean }> = ({ checked }) => (
     <Checkbox checked={checked}>
       <span className="checkmark"></span>
@@ -37,17 +22,12 @@ const PaymentPix: React.FC = () => {
     <Container>
       <img src={img} alt="logo" />
       <Header>
-        <p>João, pague a entrada de R$ 15.300,00 pelo Pix</p>
+        <p>João, pague o restante em 1x no cartão</p>
       </Header>
-      <QrCode>
-        <img src={qrCode} alt="QrCode" />
-      </QrCode>
-      <ButtonCopyQrcode>
-        Clique Aqui Para copiar QR CODE <img src={paperIcon} alt="icon" />
-      </ButtonCopyQrcode>
+      <Form />
       <PaymentQuota total="Total: R$ 31.500,00" />
     </Container>
   );
 };
 
-export default PaymentPix;
+export default PaymentCard;
