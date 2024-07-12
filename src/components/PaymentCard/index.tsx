@@ -25,7 +25,13 @@ const PaymentCard: React.FC = () => {
         <p>João, pague o restante em 1x no cartão</p>
       </Header>
       <Form />
-      <PaymentQuota total="Total: R$ 31.500,00" />
+      <PaymentQuota
+        total="Total: R$ 31.500,00"
+        card={true}
+        pix
+        card2={false}
+        pix2
+      />
     </Container>
   );
 };

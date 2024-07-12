@@ -43,9 +43,15 @@ const PaymentPix: React.FC = () => {
         <img src={qrCode} alt="QrCode" />
       </QrCode>
       <ButtonCopyQrcode>
-        Clique Aqui Para copiar QR CODE <img src={paperIcon} alt="icon" />
+        Clique para copiar QR CODE <img src={paperIcon} alt="icon" />
       </ButtonCopyQrcode>
-      <PaymentQuota total="Total: R$ 31.500,00" />
+      <PaymentQuota
+        total="Total: R$ 31.500,00"
+        card={false}
+        pix={true}
+        card2={false}
+        pix2={false}
+      />
     </Container>
   );
 };

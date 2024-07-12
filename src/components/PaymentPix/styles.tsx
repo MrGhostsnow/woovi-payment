@@ -7,6 +7,8 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 5rem;
+  border-bottom: 2px solid #ddd;
 `;
 
 export const Header = styled.h2`

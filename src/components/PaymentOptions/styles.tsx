@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const Container = styled.div`
   padding: 16px;
   font-family: "Nunito", Arial, sans-serif;
+  margin-bottom: 5rem;
+  border-bottom: 2px solid #ddd;
 `;
 
 export const Header = styled.h2`
@@ -24,10 +26,10 @@ export const OptionWithQuota = styled.div`
 
   > * {
     &:first-child {
-      border-radius: 8px 8px 0 0; // Border radius no primeiro filho
+      border-radius: 8px 8px 0 0;
     }
     &:last-child {
-      border-radius: 0 0 8px 8px; // Border radius no último filho
+      border-radius: 0 0 8px 8px;
     }
   }
 `;

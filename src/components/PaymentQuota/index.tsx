@@ -2,6 +2,7 @@ import React from "react";
 import {
   SecurePayment,
   Checkbox,
+  SecondCheckbox,
   Quotas,
   Quota,
   FirstQuota,
@@ -20,13 +21,39 @@ import line from "../../assets/line.png";
 
 interface PaymentQuotaProps {
   total: string;
+  card: boolean;
+  pix: boolean;
+  card2: boolean;
+  pix2: boolean;
 }
 
-const PaymentQuota: React.FC<PaymentQuotaProps> = ({ total }) => {
-  const CustomCheckbox: React.FC<{ checked: boolean }> = ({ checked }) => (
-    <Checkbox checked={checked}>
+const PaymentQuota: React.FC<PaymentQuotaProps> = ({
+  total,
+  card,
+  pix,
+  card2,
+  pix2,
+}) => {
+  const CustomCheckbox: React.FC<{
+    checked: boolean;
+    card: boolean;
+    pix: boolean;
+    card2: boolean;
+    pix2: boolean;
+  }> = ({ checked, card, pix, card2, pix2 }) => (
+    <Checkbox checked={checked} card={card} pix={pix} card2={card2} pix2={pix2}>
       <span className="checkmark"></span>
     </Checkbox>
+  );
+
+  const SecondCustomCheckbox: React.FC<{
+    checked: boolean;
+    card2: boolean;
+    pix2: boolean;
+  }> = ({ checked, card2, pix2 }) => (
+    <SecondCheckbox checked={checked} card2={card2} pix2={pix2}>
+      <span className="checkmark"></span>
+    </SecondCheckbox>
   );
 
   return (
@@ -38,7 +65,13 @@ const PaymentQuota: React.FC<PaymentQuotaProps> = ({ total }) => {
       <Quotas>
         <Quota>
           <FirstQuota>
-            <CustomCheckbox checked={false} />
+            <CustomCheckbox
+              checked={false}
+              card={card}
+              pix={pix}
+              card2={card2}
+              pix2={pix2}
+            />
             <p>1° entrada no Pix</p>
           </FirstQuota>
           <span>R$ 15.300,00</span>
@@ -46,7 +79,7 @@ const PaymentQuota: React.FC<PaymentQuotaProps> = ({ total }) => {
         <Line src={line} alt="line" />
         <Quota>
           <SecondQuota>
-            <CustomCheckbox checked={false} />
+            <SecondCustomCheckbox checked={false} card2={card2} pix2={pix2} />
             <p>2° entrada no Cartão</p>
           </SecondQuota>
           <span>R$ 15.300,00</span>

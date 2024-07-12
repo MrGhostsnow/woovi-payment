@@ -35,10 +35,11 @@ const Label = styled.label`
   font-size: 14px;
   font-family: "Nunito", Arial, sans-serif;
   color: #4d4d4d;
+  background-color: #fff;
 `;
 
 const Input = styled.input`
-  width: 350px;
+  width: 340px;
   height: 30px;
   padding: 10px 0;
   border: 1px solid #ccc;
@@ -48,6 +49,7 @@ const Input = styled.input`
   font-size: 18px;
   font-weight: 600;
   color: #4d4d4d;
+  padding-left: 10px;
 `;
 
 const DateInput = styled(InputMask)`
@@ -86,6 +88,8 @@ const Button = styled.button`
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
 `;
 
 const Form = () => {
@@ -93,35 +97,62 @@ const Form = () => {
     <FormContainer>
       <FormGroup>
         <Label htmlFor="fullName">Nome completo</Label>
-        <Input type="text" id="fullName" name="fullName" required />
+        <Input
+          type="text"
+          id="fullName"
+          name="fullName"
+          value={"João Linaldo Dias Fraga Santos"}
+          required
+        />
       </FormGroup>
 
       <FormGroup>
         <Label htmlFor="cpf">CPF</Label>
-        <Input type="text" id="cpf" name="cpf" required />
+        <Input
+          type="text"
+          id="cpf"
+          name="cpf"
+          value={"405.503.503-15"}
+          required
+        />
       </FormGroup>
 
       <FormGroup>
         <Label htmlFor="cardNumber">Número do cartão</Label>
-        <Input type="text" id="cardNumber" name="cardNumber" required />
+        <Input
+          type="text"
+          id="cardNumber"
+          name="cardNumber"
+          value={"405.503.503-15"}
+          required
+        />
       </FormGroup>
 
       <FormGroupDouble>
         <div>
-          <Label htmlFor="expirationDate" style={{ left: "-30px" }}>
+          <Label
+            htmlFor="expirationDate"
+            style={{ left: "10px", width: "80px" }}
+          >
             Vencimento
           </Label>
-          <DateInput mask={"99/99"} placeholder="MM/AA" maskChar={null} />
+          <DateInput
+            mask={"99/99"}
+            placeholder="MM/AA"
+            maskChar={null}
+            value={"10/11"}
+          />
         </div>
 
         <div>
-          <Label htmlFor="cvv" style={{ left: "-50px" }}>
+          <Label htmlFor="cvv" style={{ left: "10px", width: "30px" }}>
             CVV
           </Label>
           <Input
             type="text"
             id="cvv"
             name="cvv"
+            value={"405"}
             required
             style={{ width: "150px" }}
           />
@@ -135,7 +166,7 @@ const Form = () => {
         </Select>
       </FormGroup>
 
-      <Button type="submit">Pagar</Button>
+      <Button type="button">Pagar</Button>
     </FormContainer>
   );
 };

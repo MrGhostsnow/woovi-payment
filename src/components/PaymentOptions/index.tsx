@@ -23,6 +23,7 @@ import {
 import img from "../../assets/logo.png";
 import footerLogo from "../../assets/footerLogo.png";
 import shieldIcon from "../../assets/shield.png";
+import Ribbon from "../Ribbon";
 
 const PaymentOptions: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
@@ -32,16 +33,6 @@ const PaymentOptions: React.FC = () => {
   };
 
   const options = [
-    // {
-    //   quota: "1x",
-    //   label: "R$ 30.500,00",
-    //   cashback: "Ganhe 3% de Cashback",
-    //   amount: "R$ 300,00",
-    //   cashbackAmount: " de volta no seu Pix na hora",
-    //   pix: true,
-    //   pixOption: "Pix",
-    //   width: "67px",
-    // },
     {
       id: 2,
       quota: "2x",
@@ -93,13 +84,13 @@ const PaymentOptions: React.FC = () => {
             </Label>
             <CustomCheckbox checked={selectedOption === 1} />
           </FirstRow>
-
-          <BlueRibbon>
+          {/* <BlueRibbon>
             <CashbackAmount>
               <Span>R$ 300,00 </Span>
               de volta no seu Pix na hora
             </CashbackAmount>
-          </BlueRibbon>
+          </BlueRibbon> */}
+          <Ribbon emoji="🤑" text="R$ 300,00 de volta no seu Pix na hora" />
         </Option>
       </Options>
       <OptionWithQuota>
@@ -126,12 +117,19 @@ const PaymentOptions: React.FC = () => {
             </FirstRow>
             <Total>{option.total}</Total>
             {option.cashbackAmount && (
-              <BlueRibbon>
-                <CashbackAmount>
-                  <Span>{option.amount}</Span>
-                  {option.cashbackAmount}
-                </CashbackAmount>
-              </BlueRibbon>
+              // <BlueRibbon>
+              //   <CashbackAmount>
+              //
+              //   </CashbackAmount>
+              // </BlueRibbon>
+              <Ribbon
+                text={
+                  <>
+                    <Span>{option.amount}</Span>
+                    {option.cashbackAmount}
+                  </>
+                }
+              />
             )}
           </Option>
         ))}
